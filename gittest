@@ -1,0 +1,33 @@
+  309  pbcopy  < ~/.ssh/id_rsa.pub
+  310  cat id_rsa.pub
+  311  ssh -T git@github.com
+  312  git push -u origin main
+  313  git remote add origin git@github.com:yoji2/test.git
+  314  git push -u origin main
+  316  git branch -M main
+  317  git remote add origin git@github.com:yoji2/test.git
+  318  git status
+  319  cd ..
+  320  ls
+  321  cd awesome/
+  322  ls
+  323  git branch -M main
+  324  git remote add origin git@github.com:yoji2/test.git
+  325  git remote rm origin
+  326 
+  327  git push -u origin main
+  328  history 20
+
+
+%
+echo "# test" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:yoji2/test.git
+git push -u origin main
+
+% add  git
+git branch -M main
+git push -u origin main
