@@ -129,7 +129,7 @@ try:
         strings=font.render("Speed  : "+str(speed_Motor),True, (255,255,255))
         screen.blit(strings,(10,180))        
 
-        pygame.display.update() 
+        pygame.display.update()  
 
 except KeyboardInterrupt:
     print("EXITING NOW")
