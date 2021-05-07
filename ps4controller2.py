@@ -103,7 +103,7 @@ try:
 
         # set jostick valuse   
         screen.fill((0,0,0))
-        forward_joystickL = int(j.get_axis(1)* -100) # left forward/back
+        forward_joystickL = int(j.get_axis(1)* -100)  # left forward/back
         forward_joystickR = int(j.get_axis(5)* -100)
         side_joystickL    = int(j.get_axis(0)*100) # left right/left
         side_joystickR    = int(j.get_axis(2)*100) #Right side by side
