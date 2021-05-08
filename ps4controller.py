@@ -6,7 +6,7 @@ import pygame
 2 = CIRCLE
 3 = TRIANGLE
 4 = L1
-5 = R1
+5 = R1yoj
 6 = L2
 7 = R2
 8 = SHARE
