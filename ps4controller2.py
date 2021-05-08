@@ -37,6 +37,9 @@ speed_MAX_H =1080 #108/60/11.25 = 1.6 rps  96rpm
 # define initial value
 speed_Motor = speed_MAX_L
 release_BTN = ON
+count=0
+stampsum = 0
+stampsum2 = 0
 
 pygame.init()
 
@@ -47,6 +50,7 @@ pygame.display.set_caption("MGV2 status")
 oldtime = time.time()
 try:
     while True:
+        count += 1
         now=time.time()
         stamp = now - oldtime
         oldtime = now
@@ -102,19 +106,27 @@ try:
             
 
         # set jostick valuse   
-        screen.fill((0,0,0))
+
         forward_joystickL = int(j.get_axis(1)* -100)  # left forward/back
         forward_joystickR = int(j.get_axis(5)* -100)
         side_joystickL    = int(j.get_axis(0)*100) # left right/left
         side_joystickR    = int(j.get_axis(2)*100) #Right side by side
-        print(side_joystickL,' ',side_joystickR,' ', forward_joystickL, ' ' , forward_joystickR)
+        ##print(side_joystickL,' ',side_joystickR,' ', forward_joystickL, ' ' , forward_joystickR)
+        stampsum += stamp
+        if not(count % 100):
+            stampsum2  = stampsum
+            stampsum2 /= 100
+            stampsum = 0
+
+        
         # Display
+        screen.fill((0,0,0))
         font = pygame.font.SysFont("hg明朝ehgp明朝ehgs明朝e", 36)
         strings=font.render("GO/BACK: "+str(forward_joystickL),True, (255,255,255))
         screen.blit(strings,(10,40))
         strings=font.render("LEFT/RIGHT: "+str(side_joystickL),True, (255,255,255))
         screen.blit(strings,(300,40))
-        strings=font.render(str(stamp),True, (255,255,255))
+        strings=font.render(format(stampsum2,'.4f'),True, (255,255,255))
         screen.blit(strings,(10,100))
         if push_L1 == ON:
             strings=font.render("L1_BTN : ON",True,  (255,255,255))
