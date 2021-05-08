@@ -5,10 +5,10 @@
 import pygame
 import time
 '''
-0 =  SQUARE
+0 = SQUARE
 1 = X
 2 = CIRCLE
-3 = TRIANGLE
+3 = TRIANG      LE
 4 = L1
 5 = R1
 6 = L2
